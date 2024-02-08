@@ -7,13 +7,15 @@ import (
 	"github.com/brevis-network/brevis-quickstart/age"
 	"github.com/brevis-network/brevis-sdk/sdk"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/ethclient"
 	"path/filepath"
 )
 
 var mode = flag.String("mode", "", "compile or prove")
 var outDir = flag.String("out", "$HOME/circuitOut/myBrevisApp", "compilation output dir")
 var srsDir = flag.String("srs", "$HOME/kzgsrs", "where to cache kzg srs")
-var tx = flag.String("tx", "", "tx hash to prove")
+var txHash = flag.String("tx", "", "tx hash to prove")
 
 func main() {
 	flag.Parse()
@@ -29,14 +31,35 @@ func main() {
 
 func compile() {
 	// This first part is copied from app/circuit_test.go. We added the source data, then we generated the circuit input.
-	app, err := sdk.NewBrevisApp("https://eth-mainnet.nodereal.io/v1/0af795b55d124a61b86836461ece1dee") // TODO use your eth rpc
+	app, err := sdk.NewBrevisApp()
 	check(err)
 	txHash := common.HexToHash(
 		"8b805e46758497c6b32d0bf3cad3b3b435afeb0adb649857f24e424f75b79e46")
-	app.AddTransaction(sdk.TransactionQuery{TxHash: txHash})
+
+	ec, err := ethclient.Dial("https://eth-mainnet.nodereal.io/v1/0af795b55d124a61b86836461ece1dee")
+	check(err)
+	tx, _, err := ec.TransactionByHash(context.Background(), txHash)
+	check(err)
+	receipt, err := ec.TransactionReceipt(context.Background(), txHash)
+	check(err)
+	from, err := types.Sender(types.NewLondonSigner(tx.ChainId()), tx)
+	check(err)
+
+	app.AddTransaction(sdk.TransactionData{
+		Hash:                 txHash,
+		ChainId:              tx.ChainId(),
+		BlockNum:             receipt.BlockNumber,
+		Nonce:                tx.Nonce(),
+		MaxPriorityFeePerGas: tx.GasTipCap(),
+		GasPriceOrFeeCap:     tx.GasFeeCap(),
+		GasLimit:             tx.Gas(),
+		From:                 from,
+		To:                   *tx.To(),
+		Value:                tx.Value(),
+	})
 	appCircuit := &age.AppCircuit{}
 
-	circuitInput, err := app.BuildCircuitInput(context.Background(), appCircuit)
+	circuitInput, err := app.BuildCircuitInput(appCircuit)
 	check(err)
 
 	// The compilation output is the description of the circuit's constraint system.
@@ -63,7 +86,7 @@ func compile() {
 }
 
 func prove() {
-	if len(*tx) == 0 {
+	if len(*txHash) == 0 {
 		panic("-tx is required")
 	}
 
@@ -77,22 +100,42 @@ func prove() {
 	check(err)
 
 	// Query the user specified tx
-	app, err := sdk.NewBrevisApp("https://eth-mainnet.nodereal.io/v1/0af795b55d124a61b86836461ece1dee") // TODO use your eth rpc
+	app, err := sdk.NewBrevisApp()
 	check(err)
-	app.AddTransaction(sdk.TransactionQuery{TxHash: common.HexToHash(*tx)})
+	ec, err := ethclient.Dial("https://eth-mainnet.nodereal.io/v1/0af795b55d124a61b86836461ece1dee")
+	check(err)
+	tx, _, err := ec.TransactionByHash(context.Background(), common.HexToHash(*txHash))
+	check(err)
+	receipt, err := ec.TransactionReceipt(context.Background(), common.HexToHash(*txHash))
+	check(err)
+	from, err := types.Sender(types.NewLondonSigner(tx.ChainId()), tx)
+	check(err)
+
+	app.AddTransaction(sdk.TransactionData{
+		Hash:                 common.HexToHash(*txHash),
+		ChainId:              tx.ChainId(),
+		BlockNum:             receipt.BlockNumber,
+		Nonce:                tx.Nonce(),
+		MaxPriorityFeePerGas: tx.GasTipCap(),
+		GasPriceOrFeeCap:     tx.GasFeeCap(),
+		GasLimit:             tx.Gas(),
+		From:                 from,
+		To:                   *tx.To(),
+		Value:                tx.Value(),
+	})
 
 	appCircuit := &age.AppCircuit{}
 	appCircuitAssignment := &age.AppCircuit{}
 
 	// Prove
 	fmt.Println(">> Proving the transaction using my circuit")
-	circuitInput, err := app.BuildCircuitInput(context.Background(), appCircuit)
+	circuitInput, err := app.BuildCircuitInput(appCircuit)
 	check(err)
 	witness, publicWitness, err := sdk.NewFullWitness(appCircuitAssignment, circuitInput)
 	check(err)
 	proof, err := sdk.Prove(compiledCircuit, pk, witness)
 	check(err)
-	err = sdk.WriteTo(proof, filepath.Join(*outDir, "proof-"+*tx))
+	err = sdk.WriteTo(proof, filepath.Join(*outDir, "proof-"+*txHash))
 	check(err)
 
 	// Test verifying the proof we just generated
@@ -117,9 +160,9 @@ func prove() {
 	// Poll Brevis gateway for query status till the final proof is submitted
 	// on-chain by Brevis and your contract is called
 	fmt.Println(">> Waiting for final proof generation and submission")
-	tx, err := app.WaitFinalProofSubmitted(context.Background())
+	submitTx, err := app.WaitFinalProofSubmitted(context.Background())
 	check(err)
-	fmt.Printf(">> Final proof submitted: tx hash %s\n", tx)
+	fmt.Printf(">> Final proof submitted: tx hash %s\n", submitTx)
 
 	// [Don't forget to make the transaction that pays the fee by calling Brevis.sendRequest]
 }
