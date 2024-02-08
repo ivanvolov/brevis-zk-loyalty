@@ -1,9 +1,9 @@
-module github.com/celer-network/brevis-quickstart
+module github.com/brevis-network/brevis-quickstart
 
 go 1.20
 
 require (
-	github.com/celer-network/brevis-sdk v0.0.0-20240202044717-b00beb5b832a
+	github.com/brevis-network/brevis-sdk v0.0.0-20240208095205-7c080f0a4d5b
 	github.com/ethereum/go-ethereum v1.13.8
 )
 
@@ -17,7 +17,7 @@ require (
 	github.com/celer-network/zk-utils v0.0.0-20240125102252-bb623eb6e152 // indirect
 	github.com/consensys/bavard v0.1.13 // indirect
 	github.com/consensys/gnark v0.0.0 // indirect
-	github.com/consensys/gnark-crypto v0.12.2-0.20231208203441-d4eab6ddd2af // indirect
+	github.com/consensys/gnark-crypto v0.12.2-0.20231221171913-5d5eded6bb15 // indirect
 	github.com/crate-crypto/go-kzg-4844 v0.7.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/deckarep/golang-set/v2 v2.1.0 // indirect
@@ -34,8 +34,8 @@ require (
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0 // indirect
 	github.com/holiman/uint256 v1.2.4 // indirect
 	github.com/huin/goupnp v1.3.0 // indirect
-	github.com/ingonyama-zk/icicle v0.1.0 // indirect
-	github.com/ingonyama-zk/iciclegnark v0.1.1 // indirect
+	github.com/ingonyama-zk/icicle v0.1.1-0.20240120093837-db9eff751859 // indirect
+	github.com/ingonyama-zk/iciclegnark v0.1.2-0.20240120100015-8653136f9db4 // indirect
 	github.com/jackpal/go-nat-pmp v1.0.2 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect

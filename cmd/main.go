@@ -4,8 +4,8 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"github.com/celer-network/brevis-quickstart/age"
-	"github.com/celer-network/brevis-sdk/sdk"
+	"github.com/brevis-network/brevis-quickstart/age"
+	"github.com/brevis-network/brevis-sdk/sdk"
 	"github.com/ethereum/go-ethereum/common"
 	"path/filepath"
 )
@@ -28,7 +28,7 @@ func main() {
 }
 
 func compile() {
-	// This first part is copied from app/circuit_test.go
+	// This first part is copied from app/circuit_test.go. We added the source data, then we generated the circuit input.
 	app, err := sdk.NewBrevisApp("https://eth-mainnet.nodereal.io/v1/0af795b55d124a61b86836461ece1dee") // TODO use your eth rpc
 	check(err)
 	txHash := common.HexToHash(
