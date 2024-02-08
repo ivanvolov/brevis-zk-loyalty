@@ -3,7 +3,7 @@ module github.com/brevis-network/brevis-quickstart
 go 1.20
 
 require (
-	github.com/brevis-network/brevis-sdk v0.0.0-20240208095205-7c080f0a4d5b
+	github.com/brevis-network/brevis-sdk v0.0.0-20240208115011-82891fa52bd1
 	github.com/ethereum/go-ethereum v1.13.8
 )
 

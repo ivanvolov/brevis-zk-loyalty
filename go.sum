@@ -115,6 +115,12 @@ github.com/bmizerany/pat v0.0.0-20170815010413-6226ea591a40/go.mod h1:8rLXio+Wji
 github.com/boltdb/bolt v1.3.1/go.mod h1:clJnj/oiGkjum5o1McbSZDSLxVThjynRyGBgiAx27Ps=
 github.com/brevis-network/brevis-sdk v0.0.0-20240208095205-7c080f0a4d5b h1:yppDOYqmQoF+QMkb9IZDSGxwsCUgQhbpj9p0Y519mF0=
 github.com/brevis-network/brevis-sdk v0.0.0-20240208095205-7c080f0a4d5b/go.mod h1:jK//SLIZJnjFxXhDTVgm0SP6d3njXI5f2Q3FS1WZ4Ns=
+github.com/brevis-network/brevis-sdk v0.0.0-20240208105657-d39c501a344f h1:YGNBhvi6LGvAEUC7Z1jGBmxh8VahzcQ7wTHqQLX/TKA=
+github.com/brevis-network/brevis-sdk v0.0.0-20240208105657-d39c501a344f/go.mod h1:jK//SLIZJnjFxXhDTVgm0SP6d3njXI5f2Q3FS1WZ4Ns=
+github.com/brevis-network/brevis-sdk v0.0.0-20240208110612-06efc9ff4d84 h1:HWyLRfoGObq/qLj3YLBAEQqtagZNJgCb2WOeWBYP5Gk=
+github.com/brevis-network/brevis-sdk v0.0.0-20240208110612-06efc9ff4d84/go.mod h1:jK//SLIZJnjFxXhDTVgm0SP6d3njXI5f2Q3FS1WZ4Ns=
+github.com/brevis-network/brevis-sdk v0.0.0-20240208115011-82891fa52bd1 h1:a9vzUQJ2iOkeu7Jxre0N5SdGsaisZpdwK33lJkpKjAk=
+github.com/brevis-network/brevis-sdk v0.0.0-20240208115011-82891fa52bd1/go.mod h1:jK//SLIZJnjFxXhDTVgm0SP6d3njXI5f2Q3FS1WZ4Ns=
 github.com/btcsuite/btcd/btcec/v2 v2.2.0 h1:fzn1qaOt32TuLjFlkzYSsBC35Q3KUjT1SwPxiMSCF5k=
 github.com/btcsuite/btcd/btcec/v2 v2.2.0/go.mod h1:U7MHm051Al6XmscBQ0BoNydpOTsFAn707034b5nY8zU=
 github.com/btcsuite/btcd/chaincfg/chainhash v1.0.1 h1:q0rUy8C/TYNBQS1+CGKw68tLOFYSNEs0TFnxxnS9+4U=
@@ -846,6 +852,7 @@ github.com/status-im/keycard-go v0.2.0/go.mod h1:wlp8ZLbsmrF6g6WjugPAx+IzoLrkdf9
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.1.1/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.4.0/go.mod h1:YvHI0jy2hoMjB+UWwv71VJQ9isScKT/TqJzVSSt89Yw=
+github.com/stretchr/objx v0.5.0/go.mod h1:Yh+to48EsGEfYuaHDzXPcE3xhTkx73EhmCGUpEOglKo=
 github.com/stretchr/testify v1.2.0/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
 github.com/stretchr/testify v1.2.1/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
