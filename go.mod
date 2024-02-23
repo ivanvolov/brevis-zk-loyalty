@@ -3,7 +3,7 @@ module github.com/brevis-network/brevis-quickstart
 go 1.20
 
 require (
-	github.com/brevis-network/brevis-sdk v0.0.0-20240208115011-82891fa52bd1
+	github.com/brevis-network/brevis-sdk v0.0.0-20240223085223-2f1fbf75991d
 	github.com/ethereum/go-ethereum v1.13.8
 )
 
@@ -12,9 +12,9 @@ require (
 	github.com/StackExchange/wmi v1.2.1 // indirect
 	github.com/bits-and-blooms/bitset v1.10.0 // indirect
 	github.com/blang/semver/v4 v4.0.0 // indirect
+	github.com/brevis-network/zk-utils v0.0.0-20240223081048-7daf41d41dee // indirect
 	github.com/btcsuite/btcd/btcec/v2 v2.2.0 // indirect
 	github.com/celer-network/goutils v0.1.60 // indirect
-	github.com/celer-network/zk-utils v0.0.0-20240125102252-bb623eb6e152 // indirect
 	github.com/consensys/bavard v0.1.13 // indirect
 	github.com/consensys/gnark v0.0.0 // indirect
 	github.com/consensys/gnark-crypto v0.12.2-0.20231221171913-5d5eded6bb15 // indirect
