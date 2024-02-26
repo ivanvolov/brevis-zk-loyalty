@@ -115,6 +115,9 @@ github.com/bmizerany/pat v0.0.0-20170815010413-6226ea591a40/go.mod h1:8rLXio+Wji
 github.com/boltdb/bolt v1.3.1/go.mod h1:clJnj/oiGkjum5o1McbSZDSLxVThjynRyGBgiAx27Ps=
 github.com/brevis-network/brevis-sdk v0.0.0-20240223085223-2f1fbf75991d h1:sRqJp3reTCV2A+SpkF/4mUnj6Q9gLWSBff7NygeI9G4=
 github.com/brevis-network/brevis-sdk v0.0.0-20240223085223-2f1fbf75991d/go.mod h1:t2FvEiELnJORy+de2hW80/Zgxg8HDX6rJCsmOfJ0gOM=
+github.com/brevis-network/brevis-sdk v0.0.0-20240226031431-fbef7f8c4e97/go.mod h1:t2FvEiELnJORy+de2hW80/Zgxg8HDX6rJCsmOfJ0gOM=
+github.com/brevis-network/brevis-sdk v0.0.0-20240226033653-627271d2c573 h1:f1haQQ3yz5KS4rp3d7/2LjmINHRmb4YStmRbZ6ppWAE=
+github.com/brevis-network/brevis-sdk v0.0.0-20240226033653-627271d2c573/go.mod h1:t2FvEiELnJORy+de2hW80/Zgxg8HDX6rJCsmOfJ0gOM=
 github.com/brevis-network/zk-utils v0.0.0-20240223081048-7daf41d41dee h1:Cdwp9DUDjTdALs7M0px0y36Y1XqR1hUe2Sud3BP+EYc=
 github.com/brevis-network/zk-utils v0.0.0-20240223081048-7daf41d41dee/go.mod h1:qdDGBm7848xJ08PKSsFnpmUD7qw7yZXo1qMO5HUkr7E=
 github.com/btcsuite/btcd/btcec/v2 v2.2.0 h1:fzn1qaOt32TuLjFlkzYSsBC35Q3KUjT1SwPxiMSCF5k=
@@ -846,6 +849,7 @@ github.com/status-im/keycard-go v0.2.0/go.mod h1:wlp8ZLbsmrF6g6WjugPAx+IzoLrkdf9
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.1.1/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.4.0/go.mod h1:YvHI0jy2hoMjB+UWwv71VJQ9isScKT/TqJzVSSt89Yw=
+github.com/stretchr/objx v0.5.0/go.mod h1:Yh+to48EsGEfYuaHDzXPcE3xhTkx73EhmCGUpEOglKo=
 github.com/stretchr/testify v1.2.0/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
 github.com/stretchr/testify v1.2.1/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=

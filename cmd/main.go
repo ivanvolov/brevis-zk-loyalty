@@ -46,16 +46,16 @@ func compile() {
 	check(err)
 
 	app.AddTransaction(sdk.TransactionData{
-		Hash:                 txHash,
-		ChainId:              tx.ChainId(),
-		BlockNum:             receipt.BlockNumber,
-		Nonce:                tx.Nonce(),
-		MaxPriorityFeePerGas: tx.GasTipCap(),
-		GasPriceOrFeeCap:     tx.GasFeeCap(),
-		GasLimit:             tx.Gas(),
-		From:                 from,
-		To:                   *tx.To(),
-		Value:                tx.Value(),
+		Hash:                txHash,
+		ChainId:             tx.ChainId(),
+		BlockNum:            receipt.BlockNumber,
+		Nonce:               tx.Nonce(),
+		GasTipCapOrGasPrice: tx.GasTipCap(),
+		GasFeeCap:           tx.GasFeeCap(),
+		GasLimit:            tx.Gas(),
+		From:                from,
+		To:                  *tx.To(),
+		Value:               tx.Value(),
 	})
 	appCircuit := &age.AppCircuit{}
 
@@ -112,16 +112,16 @@ func prove() {
 	check(err)
 
 	app.AddTransaction(sdk.TransactionData{
-		Hash:                 common.HexToHash(*txHash),
-		ChainId:              tx.ChainId(),
-		BlockNum:             receipt.BlockNumber,
-		Nonce:                tx.Nonce(),
-		MaxPriorityFeePerGas: tx.GasTipCap(),
-		GasPriceOrFeeCap:     tx.GasFeeCap(),
-		GasLimit:             tx.Gas(),
-		From:                 from,
-		To:                   *tx.To(),
-		Value:                tx.Value(),
+		Hash:                common.HexToHash(*txHash),
+		ChainId:             tx.ChainId(),
+		BlockNum:            receipt.BlockNumber,
+		Nonce:               tx.Nonce(),
+		GasTipCapOrGasPrice: tx.GasTipCap(),
+		GasFeeCap:           tx.GasFeeCap(),
+		GasLimit:            tx.Gas(),
+		From:                from,
+		To:                  *tx.To(),
+		Value:               tx.Value(),
 	})
 
 	appCircuit := &age.AppCircuit{}
