@@ -13,7 +13,7 @@ import (
 func TestCircuit(t *testing.T) {
 	app, err := sdk.NewBrevisApp()
 	check(err)
-	ec, err := ethclient.Dial("https://eth-mainnet.nodereal.io/v1/0af795b55d124a61b86836461ece1dee")
+	ec, err := ethclient.Dial("")
 	check(err)
 
 	txHash := common.HexToHash(
@@ -26,16 +26,16 @@ func TestCircuit(t *testing.T) {
 	check(err)
 
 	app.AddTransaction(sdk.TransactionData{
-		Hash:                 txHash,
-		ChainId:              tx.ChainId(),
-		BlockNum:             receipt.BlockNumber,
-		Nonce:                tx.Nonce(),
-		GasTipCapOrGasPrice:  tx.GasTipCap(),
-		GasFeeCap:            tx.GasFeeCap(),
-		GasLimit:             tx.Gas(),
-		From:                 from,
-		To:                   *tx.To(),
-		Value:                tx.Value(),
+		Hash:                txHash,
+		ChainId:             tx.ChainId(),
+		BlockNum:            receipt.BlockNumber,
+		Nonce:               tx.Nonce(),
+		GasTipCapOrGasPrice: tx.GasTipCap(),
+		GasFeeCap:           tx.GasFeeCap(),
+		GasLimit:            tx.Gas(),
+		From:                from,
+		To:                  *tx.To(),
+		Value:               tx.Value(),
 	})
 
 	guest := &AppCircuit{}
