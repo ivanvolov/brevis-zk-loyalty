@@ -3,7 +3,7 @@ module github.com/brevis-network/brevis-quickstart
 go 1.20
 
 require (
-	github.com/brevis-network/brevis-sdk v0.0.0-20240302000749-4d3f21cb51d0
+	github.com/brevis-network/brevis-sdk v0.0.0-20240305131028-a73db58dac35
 	github.com/ethereum/go-ethereum v1.13.8
 )
 
@@ -68,5 +68,3 @@ require (
 )
 
 replace github.com/consensys/gnark => github.com/celer-network/gnark v0.0.0-20240204054508-d08e3ed6bd9f
-
-replace github.com/brevis-network/brevis-sdk => /Users/patrickmao/repos/brevis-sdk
