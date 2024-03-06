@@ -16,6 +16,7 @@ var mode = flag.String("mode", "", "compile or prove")
 var outDir = flag.String("out", "$HOME/circuitOut/myBrevisApp", "compilation output dir")
 var srsDir = flag.String("srs", "$HOME/kzgsrs", "where to cache kzg srs")
 var txHash = flag.String("tx", "", "tx hash to prove")
+var rpc = flag.String("rpc", "https://gateway.tenderly.co/public/mainnet", "eth json rpc url")
 
 func main() {
 	flag.Parse()
@@ -35,7 +36,6 @@ func compile() {
 	// the downloaded SRS in the process is saved to srsDir
 	_, _, _, err := sdk.Compile(appCircuit, *outDir, *srsDir)
 	check(err)
-	fmt.Println("compilation/setup complete")
 }
 
 func prove() {
@@ -98,7 +98,7 @@ func prove() {
 }
 
 func queryTransaction(txhash common.Hash) sdk.TransactionData {
-	ec, err := ethclient.Dial("<your-eth-rpc>")
+	ec, err := ethclient.Dial(*rpc)
 	check(err)
 	tx, _, err := ec.TransactionByHash(context.Background(), txhash)
 	check(err)
