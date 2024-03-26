@@ -17,7 +17,7 @@ func TestCircuit(t *testing.T) {
 	check(err)
 
 	txHash := common.HexToHash(
-		"8b805e46758497c6b32d0bf3cad3b3b435afeb0adb649857f24e424f75b79e46")
+		"4a18c7762036fcd4016d9ba74b40a8c3614adf9b6f7c6439c4675f9e828211c8")
 	tx, _, err := ec.TransactionByHash(context.Background(), txHash)
 	check(err)
 	receipt, err := ec.TransactionReceipt(context.Background(), txHash)
