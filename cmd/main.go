@@ -73,7 +73,7 @@ func prove() {
 	check(err)
 
 	fmt.Println(">> Initiating Brevis request")
-	appContract := common.HexToAddress("0x73090023b8D731c4e87B3Ce9Ac4A9F4837b4C1bd")
+	appContract := common.HexToAddress("0xef1B4B164Fd3b7933bfaDb042373560e715Ec5D6")
 	refundee := common.HexToAddress("0x164Ef8f77e1C88Fb2C724D3755488bE4a3ba4342")
 
 	calldata, requestId, feeValue, err := app.PrepareRequest(vk, 1, 11155111, refundee, appContract)
