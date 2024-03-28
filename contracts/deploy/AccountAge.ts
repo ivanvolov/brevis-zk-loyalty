@@ -9,7 +9,7 @@ const deployFunc: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
   const { deploy } = deployments;
   const { deployer } = await getNamedAccounts();
 
-  const args: string[] = ['0x7d4ed4077826Bf9BEB6232240A39db251e513e16']; // BrevisProof contract address on sepolia
+  const args: string[] = ['0x4446e0f8417C1db113899929A8F3cEe8e0DcBCDb']; // BrevisProof contract address on sepolia
   const deployment = await deploy('AccountAge', {
     from: deployer,
     log: true,
