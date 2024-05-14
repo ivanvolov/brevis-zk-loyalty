@@ -4,12 +4,13 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"path/filepath"
+
 	"github.com/brevis-network/brevis-quickstart/age"
 	"github.com/brevis-network/brevis-sdk/sdk"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"path/filepath"
 )
 
 var mode = flag.String("mode", "", "compile or prove")
