@@ -4,6 +4,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"math/big"
 	"path/filepath"
 
 	"github.com/brevis-network/brevis-quickstart/age"
@@ -107,13 +108,23 @@ func queryTransaction(txhash common.Hash) sdk.TransactionData {
 	check(err)
 	from, err := types.Sender(types.NewLondonSigner(tx.ChainId()), tx)
 	check(err)
+
+	gtc := big.NewInt(0)
+	gasFeeCap := big.NewInt(0)
+	if tx.Type() == types.LegacyTxType {
+		gtc = tx.GasPrice()
+	} else {
+		gtc = tx.GasTipCap()
+		gasFeeCap = tx.GasFeeCap()
+	}
+
 	return sdk.TransactionData{
 		Hash:                common.HexToHash(*txHash),
 		ChainId:             tx.ChainId(),
 		BlockNum:            receipt.BlockNumber,
 		Nonce:               tx.Nonce(),
-		GasTipCapOrGasPrice: tx.GasTipCap(),
-		GasFeeCap:           tx.GasFeeCap(),
+		GasTipCapOrGasPrice: gtc,
+		GasFeeCap:           gasFeeCap,
 		GasLimit:            tx.Gas(),
 		From:                from,
 		To:                  *tx.To(),
