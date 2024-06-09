@@ -15,8 +15,8 @@ import (
 )
 
 var mode = flag.String("mode", "", "compile or prove")
-var outDir = flag.String("out", "$HOME/circuitOut/myBrevisApp", "compilation output dir")
-var srsDir = flag.String("srs", "$HOME/kzgsrs", "where to cache kzg srs")
+var outDir = flag.String("out", "pwd/circuitOut/myBrevisApp", "compilation output dir")
+var srsDir = flag.String("srs", "pwd/kzgsrs", "where to cache kzg srs")
 var txHash = flag.String("tx", "", "tx hash to prove")
 var rpc = flag.String("rpc", "https://gateway.tenderly.co/public/mainnet", "eth json rpc url")
 
