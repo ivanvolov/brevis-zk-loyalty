@@ -3,7 +3,7 @@
         "**/node_modules": true,
         "**/contracts/artifacts": true,
         "**/contracts/cache": true,
-        "**/contracts/typechain": true,
+        // "**/contracts/typechain": true,
         "**/contracts/deployments": true,
         "**/.git": true
     },

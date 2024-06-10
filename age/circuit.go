@@ -2,6 +2,7 @@ package age
 
 import (
 	"github.com/brevis-network/brevis-sdk/sdk"
+	"github.com/ethereum/go-ethereum/common"
 )
 
 type AppCircuit struct{}
@@ -13,17 +14,17 @@ func (c *AppCircuit) Allocate() (maxReceipts, maxStorage, maxTransactions int) {
 	return 0, 0, 1
 }
 
-// Headgehog address
+// Quick Deposit periphery contract
 var HeadgehogAddress = sdk.ConstUint248(
-	common.HexToAddress("0x4530DA167C5a751e48f35b2aa08F44570C03B7dd"))
+	common.HexToAddress("0x468363E262999046BAFC5EA954768920ee349358"))
 
 func (c *AppCircuit) Define(api *sdk.CircuitAPI, in sdk.DataInput) error {
 	txs := sdk.NewDataStream(api, in.Transactions)
 
 	tx := sdk.GetUnderlying(txs, 0)
-	
 	// This is our main check logic
 	api.Uint248.AssertIsEqual(tx.To, HeadgehogAddress)
+	api.Uint248.AssertIsLessOrEqual(tx.BlockNum, sdk.ConstUint248(17021883))
 
 	// Output variables can be later accessed in our app contract
 	api.OutputAddress(tx.From)

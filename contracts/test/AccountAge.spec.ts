@@ -1,25 +1,25 @@
 import { loadFixture } from '@nomicfoundation/hardhat-network-helpers';
 import { expect } from 'chai';
 import { ethers } from 'hardhat';
-import { AccountAge__factory, MockBrevisProof__factory } from '../typechain';
+import { HedgehogLoyalty__factory, MockBrevisProof__factory } from '../typechain';
 
 const vkHash = '0x8888888888888888888888888888888888888888888888888888888888888888';
 
-async function deployAccountAgeFixture() {
+async function deployHedgehogLoyaltyFixture() {
   const [owner, otherAccount] = await ethers.getSigners();
   const MockBrevisProof = (await ethers.getContractFactory('MockBrevisProof')) as MockBrevisProof__factory;
   const mockBrevisProof = await MockBrevisProof.deploy();
 
-  const AccountAge = (await ethers.getContractFactory('AccountAge')) as AccountAge__factory;
-  const accountAge = await AccountAge.deploy(mockBrevisProof.getAddress());
-  await accountAge.setVkHash(vkHash);
+  const HedgehogLoyalty = (await ethers.getContractFactory('HedgehogLoyalty')) as HedgehogLoyalty__factory;
+  const hedgehogLoyalty = await HedgehogLoyalty.deploy(mockBrevisProof.getAddress());
+  await hedgehogLoyalty.setVkHash(vkHash);
 
-  return { accountAge, mockBrevisProof, owner };
+  return { hedgehogLoyalty, mockBrevisProof, owner };
 }
 
 describe('Account age', async () => {
   it('should handle proof result in callback', async () => {
-    const { accountAge, mockBrevisProof, owner } = await loadFixture(deployAccountAgeFixture);
+    const { hedgehogLoyalty, mockBrevisProof, owner } = await loadFixture(deployHedgehogLoyaltyFixture);
 
     const abiCoder = ethers.AbiCoder.defaultAbiCoder();
 
@@ -38,7 +38,7 @@ describe('Account age', async () => {
 
     await mockBrevisProof.setMockOutput(requestId, testOutputCommit, vkHash);
 
-    const tx = await accountAge.brevisCallback(requestId, testCircuitOutput);
-    await expect(tx).to.emit(accountAge, 'AccountAgeAttested').withArgs(expectedAccount, expectedBlockNum);
+    const tx = await hedgehogLoyalty.brevisCallback(requestId, testCircuitOutput);
+    await expect(tx).to.emit(hedgehogLoyalty, 'HedgehogLoyaltyAttested').withArgs(expectedAccount, expectedBlockNum);
   });
 });

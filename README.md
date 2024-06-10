@@ -1,3 +1,2 @@
-# Brevis Quickstart
 
-This repo is the finished version from the [Brevis SDK Tutorial](https://app.gitbook.com/o/KqK7YjAlzW1oggY8EUgX/s/5msrhTSq5M4J66JYO0sV/developer-guide/tutorial)
+final proof for query 2d057d9ed09b8ab05a6c29bb29b7d0bc64e743956da5d5bdc87acb727e871aa1 submitted: tx 0x385e94ddfedd2dc3fa30e2a80eada4b69713ad685659e640518acae78180c106
