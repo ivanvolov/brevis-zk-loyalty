@@ -16,5 +16,8 @@ prove:
 send_request:
 	cd contracts && npx hardhat run scripts/SendBrevisRequest.ts --network sepolia
 
-check_loaylty:
+check_loyalty:
 	cd contracts && npx hardhat run scripts/CheckLoyalty.ts --network sepolia
+
+spell:
+	cspell "**/*.*"

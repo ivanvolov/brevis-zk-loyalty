@@ -7,7 +7,7 @@ import (
 	"math/big"
 	"path/filepath"
 
-	"github.com/brevis-network/brevis-quickstart/age"
+	age "github.com/brevis-network/brevis-quickstart/circuit"
 	"github.com/brevis-network/brevis-sdk/sdk"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"

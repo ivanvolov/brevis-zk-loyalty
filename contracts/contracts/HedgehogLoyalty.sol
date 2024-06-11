@@ -27,7 +27,7 @@ contract HedgehogLoyalty is BrevisApp, Ownable {
 
         (address txFrom, uint64 blockNum) = decodeOutput(_circuitOutput);
 
-        isLoyal[txFrom] = blockNum; // This will help to seup the loyalty based on order of first usage if needed
+        isLoyal[txFrom] = blockNum; // This will help to setup the loyalty based on order of first usage if needed
 
         emit HedgehogLoyaltyAttested(txFrom, blockNum);
     }
